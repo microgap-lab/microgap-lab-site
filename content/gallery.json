@@ -1,0 +1,6 @@
+{
+  "items": [
+    {"title": "Sample project (edit or delete me)", "date": "2026-10-03", "category": "Auto & Mechanical", "material": "PETG", "description": "Describe the part, what it replaces, and how long it took.", "images": []},
+    {"title": "Second sample (edit or delete me)", "date": "2026-10-01", "category": "Decor", "material": "PLA", "description": "Add photos from the admin page.", "images": []}
+  ]
+}
