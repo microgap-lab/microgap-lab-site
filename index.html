@@ -1,105 +1,143 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="fr"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MicroGap Lab | Premium 3D printing & CAD design in Algeria</title>
-<meta name="description" content="Custom mechanical and auto spare parts, decor and custom projects. 3D printing and CAD design with delivery to all 69 wilayas.">
+<title>MicroGap Lab</title>
+<meta name="description" content="3D printing and CAD design in Algeria. Custom auto and mechanical parts, decor, delivery to 69 wilayas.">
 <style>
-:root{--bg:#0b0f12;--panel:#12181d;--line:#26313a;--ink:#e8eef1;--mute:#9aa8b0;--teal:#3dd6c8;--orange:#f26a1b}
+:root{--bg:#0b0f17;--panel:#121824;--line:#243041;--ink:#e8eef4;--mute:#97a6b3;--teal:#3dd6c8;--org:#f26a1b}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 system-ui,"Segoe UI",Roboto,Arial,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,"Segoe UI",Roboto,Arial,sans-serif}
 a{color:inherit}.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
-nav{display:flex;align-items:center;gap:12px;padding:16px 0}
-nav img{width:44px;height:44px;border-radius:50%;object-fit:cover}
-nav b{font-size:1.15rem;letter-spacing:-.01em}nav a.l{margin-left:auto;color:var(--mute);text-decoration:none}
-.hero{padding:56px 0 48px;background:repeating-radial-gradient(circle at 85% 40%,transparent 0 14px,#161e24 14px 15px)}
-h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.06;letter-spacing:-.02em;margin:0 0 6px;max-width:15em}
-.ex{display:block;width:min(420px,80%);height:24px;margin:0 0 18px}
-.ex path{fill:none;stroke:var(--orange);stroke-width:4;stroke-linecap:round;stroke-dasharray:520;stroke-dashoffset:520;animation:d 1.6s .3s ease-out forwards}
-@keyframes d{to{stroke-dashoffset:0}}
-.ar{font-size:1.1rem;color:var(--teal);margin:0 0 6px}.sub{color:var(--mute);max-width:36em;margin:0 0 26px}
-.btns{display:flex;flex-wrap:wrap;gap:10px}
-.btn{display:inline-block;padding:12px 20px;border-radius:6px;font:inherit;font-weight:700;text-decoration:none;border:2px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem}
+.brand img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+.sp{margin-inline-start:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pill{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:99px;padding:5px 11px;font:inherit;font-size:.85rem;text-decoration:none;cursor:pointer}
+.pill[aria-pressed=true]{background:var(--teal);border-color:var(--teal);color:#06201e}
+.hero{padding:44px 0 40px;background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:36px 36px}
+h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.12;letter-spacing:-.01em;margin:30px 0 0;max-width:15em}
+.bar{height:4px;width:0;background:var(--org);border-radius:2px;margin:12px 0 18px;animation:w 1.2s .3s ease-out forwards}
+@keyframes w{to{width:140px}}
+.sub{color:var(--mute);max-width:36em;margin:0 0 24px;font-size:1.05rem}
+.btn{display:inline-block;padding:12px 22px;border-radius:8px;font:inherit;font-weight:700;text-decoration:none;border:2px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
 .btn.main{background:var(--teal);border-color:var(--teal);color:#06201e}
-.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.chip:focus-visible,.card:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
-section{padding:48px 0}h2{font-size:1.7rem;margin:0 0 6px;letter-spacing:-.01em}.lead{color:var(--mute);margin:0 0 22px}
-.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
-.svc div{border-top:3px solid var(--teal);padding-top:12px}.svc b{display:block}.svc span{color:var(--mute);font-size:.95rem}
+.btns{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.trust{display:flex;flex-wrap:wrap;gap:8px 22px;margin:26px 0 0;color:var(--mute);font-size:.92rem}
+.trust span:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-inline-end:8px}
+:focus-visible{outline:3px solid var(--org);outline-offset:2px}
+section{padding:46px 0}h2{font-size:1.7rem;margin:0 0 6px}.lead{color:var(--mute);margin:0 0 22px}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.b,.card{background:#ffffff08;border:1px solid #ffffff14;border-radius:12px;transition:transform .2s,border-color .2s,box-shadow .2s}
+.b{padding:20px}.b b{display:block;font-size:1.08rem;margin-bottom:4px}.b p{margin:0;color:var(--mute)}
+.b.w{grid-column:1/-1;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:24px 24px}
+.b:hover,.card:hover{transform:translateY(-4px);border-color:var(--teal);box-shadow:0 10px 30px -12px #3dd6c866}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:2px 10px;font-size:.8rem;color:var(--teal);margin:10px 0 0;margin-inline-end:6px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
-.chip{border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:7px 14px;border-radius:99px;font:inherit;font-size:.92rem;cursor:pointer}
-.chip[aria-pressed=true]{background:var(--teal);color:#06201e;border-color:var(--teal)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;cursor:pointer;text-align:left;color:inherit;font:inherit;padding:0}
-.ph{position:relative;aspect-ratio:4/3;background:repeating-radial-gradient(circle at 50% 50%,#12181d 0 6px,#1b242b 6px 7px)}
+.card{overflow:hidden;cursor:pointer;text-align:start;color:inherit;font:inherit;padding:0}
+.ph{position:relative;aspect-ratio:4/3;background:repeating-radial-gradient(circle,#121824 0 6px,#1b2431 6px 7px)}
 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.ph i{position:absolute;right:8px;bottom:8px;background:#000a;padding:2px 9px;border-radius:99px;font-size:.8rem;font-style:normal}
-.card div.t{padding:11px 13px}.card b{display:block}.card span{color:var(--mute);font-size:.9rem}
-dialog{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:0;width:min(760px,94vw);max-height:92vh;overflow:auto}
-dialog::backdrop{background:#000c}
-dialog img{display:block;width:100%;max-height:60vh;object-fit:contain;background:#000}
-.dn{display:flex;gap:8px;padding:10px 14px}.dn .btn{padding:7px 14px}.dd{padding:4px 18px 18px}.dd h3{margin:0 0 4px}.dd p{color:var(--mute);margin:0 0 10px}
-form{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:22px;display:grid;gap:14px;max-width:640px}
+.ph i{position:absolute;inset-inline-end:8px;bottom:8px;background:#000a;padding:2px 9px;border-radius:99px;font-size:.8rem;font-style:normal}
+.card .t{padding:11px 13px}.card b{display:block}.card span{color:var(--mute);font-size:.88rem}
+dialog{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:0;width:min(720px,94vw);max-height:92vh;overflow:auto}
+dialog::backdrop{background:#000c}dialog img{display:block;width:100%;max-height:60vh;object-fit:contain;background:#000}
+.dn{display:flex;gap:8px;padding:10px 14px}.dn .btn{padding:6px 14px}.dd{padding:6px 20px 20px}.dd h3{margin:0 0 4px}.dd p{color:var(--mute);margin:0 0 10px}
+.g{border-top:1px solid var(--line);padding:12px 0}.g b{color:var(--teal)}.warn{border:1px solid var(--org);border-radius:8px;padding:10px 12px;font-size:.92rem;margin-top:14px}
+form{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;gap:14px;max-width:640px}
 label{display:grid;gap:6px;font-weight:600;font-size:.95rem}
-input,select,textarea{font:inherit;padding:11px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);width:100%}
-textarea{min-height:110px;resize:vertical}.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.note{font-size:.9rem;color:var(--mute);margin:0}#msg{font-weight:700;margin:0;min-height:1.4em}.ok{color:var(--teal)}.err{color:#ff7b6b}
-.hp{position:absolute;left:-9999px}footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mute);font-size:.95rem}
-@media(max-width:560px){.row{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ex path{animation:none;stroke-dashoffset:0}}
+input,select,textarea{font:inherit;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%}
+textarea{min-height:110px;resize:vertical}.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.mr{display:flex;gap:8px}
+#msg{font-weight:700;margin:0}.ok{color:var(--teal)}.err{color:#ff7b6b}#after{display:none;gap:10px;flex-wrap:wrap}
+.hp{position:absolute;left:-9999px}footer{border-top:1px solid var(--line);padding:26px 0 80px;color:var(--mute);font-size:.95rem}
+#wa{display:none;position:fixed;inset-block-end:18px;inset-inline-end:18px;background:#25d366;color:#04210f;font-weight:700;padding:12px 18px;border-radius:99px;text-decoration:none;box-shadow:0 6px 20px #0008}
+@media(max-width:620px){.bento,.row{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar{animation:none;width:140px}.b,.card{transition:none}}
 </style></head><body>
 <div class="hero"><div class="wrap">
-<nav><img src="images/logo.png" alt="" onerror="this.remove()"><b>MicroGap Lab</b><a class="l" href="#work">Work</a><a class="l" style="margin-left:14px" href="#request">Request</a></nav>
-<h1 style="margin-top:36px">Premium 3D printing and CAD design in Algeria.</h1>
-<svg class="ex" viewBox="0 0 420 24" aria-hidden="true"><path d="M4 14 C60 4 90 22 150 12 S250 4 300 13 S380 18 416 8"/></svg>
-<p class="ar" lang="ar" dir="rtl">عندك فكرة، بياسة مكسرة، أو مشروع تحب تجسده؟ نحن هنا للمساعدة</p>
-<p class="sub">Send us the broken part, a photo or your measurements. We model it, print it and deliver it to all 69 wilayas.</p>
-<div class="btns" id="cta"><a class="btn main" href="#request">Request a part</a></div>
+<nav><div class="brand"><img id="logo" alt="" hidden>MicroGap Lab</div>
+<div class="sp"><span class="soc" id="soc"></span><span class="lang"><button class="pill" data-l="ar">AR</button> <button class="pill" data-l="fr">FR</button> <button class="pill" data-l="en">EN</button></span><a class="pill" href="#request" data-i="nreq"></a></div></nav>
+<h1 data-i="h1"></h1><div class="bar"></div>
+<p class="sub" data-i="sub"></p>
+<div class="btns"><a class="btn main" href="#request" data-i="cta"></a><a class="btn" href="#work" data-i="cta2"></a></div>
+<div class="trust"><span data-i="tr1"></span><span data-i="tr2"></span><span data-i="tr3"></span></div>
 </div></div>
 <main>
-<section><div class="wrap"><div class="svc">
-<div><b>Mechanical and auto spare parts</b><span>Hard-to-find plastic parts, copied or redesigned.</span></div>
-<div><b>Decor and custom projects</b><span>Unique pieces made from your idea.</span></div>
-<div><b>CAD design</b><span>No file? We design it from your part or sketch.</span></div>
+<section><div class="wrap"><div class="bento">
+<div class="b"><b data-i="s1t"></b><p data-i="s1d"></p><span class="tag">PETG</span><span class="tag">ABS / ASA</span></div>
+<div class="b"><b data-i="s2t"></b><p data-i="s2d"></p><span class="tag">PLA</span><span class="tag">Matte</span></div>
+<div class="b w"><b data-i="s3t"></b><p data-i="s3d"></p><span class="tag">STL</span><span class="tag">STEP</span></div>
 </div></div></section>
-<section id="work"><div class="wrap"><h2>Recent work</h2><p class="lead">Parts and projects we have printed. New work is added regularly.</p>
-<div class="chips" id="chips"></div><div class="grid" id="grid"></div></div></section>
-<section id="request"><div class="wrap"><h2>Request a part</h2><p class="lead">Describe what you need. We reply with a price and a lead time.</p>
+<section id="work"><div class="wrap"><h2 data-i="wt"></h2><p class="lead" data-i="wd"></p><div class="chips" id="chips"></div><div class="grid" id="grid"></div></div></section>
+<section id="request"><div class="wrap"><h2 data-i="rt"></h2><p class="lead" data-i="rd"></p>
 <form id="f">
-<input type="hidden" name="access_key" value="a444946c-529d-42ba-a4d0-a5f6e24095f5"><input type="hidden" name="subject" value="MicroGap Lab: new request"><input type="hidden" name="from_name" value="MicroGap Lab website">
-<input class="hp" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
-<div class="row"><label>Name<input name="name" required autocomplete="name"></label><label>Phone<input name="phone" type="tel" required autocomplete="tel"></label></div>
-<div class="row"><label>Wilaya<input name="wilaya"></label><label>Material<select name="material"><option>Not sure</option><option>PLA</option><option>PETG</option><option>ABS</option><option>TPU (flexible)</option></select></label></div>
-<label>Your part (use, dimensions in mm, quantity)<textarea name="details" required></textarea></label>
-<p class="note">To send photos, message us on Instagram or Facebook after sending this request.</p>
-<button class="btn main" type="submit">Send request</button><p id="msg" role="status"></p>
+<input type="hidden" name="access_key" value="a444946c-529d-42ba-a4d0-a5f6e24095f5"><input type="hidden" name="subject" value="MicroGap Lab: new request"><input type="hidden" name="from_name" value="MicroGap Lab website"><input class="hp" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div class="row"><label><span data-i="fn"></span><input name="name" required autocomplete="name"></label><label><span data-i="fp"></span><input name="phone" type="tel" required autocomplete="tel" placeholder="05 55 12 34 56"></label></div>
+<label><span data-i="fw"></span><input name="wilaya"></label>
+<label><span data-i="fm"></span><span class="mr"><select name="material"><option value="Recommend for me" data-i="m0"></option><option value="PLA / PLA+" data-i="m1"></option><option value="PETG" data-i="m2"></option><option value="ABS / ASA" data-i="m3"></option><option value="Specialty / fiber reinforced" data-i="m4"></option></select><button type="button" class="pill" id="gb" data-i="gbtn"></button></span></label>
+<label><span data-i="fd"></span><textarea name="details" required></textarea></label>
+<button class="btn main" type="submit" data-i="send"></button><p id="msg" role="status"></p><div id="after"></div>
 </form></div></section>
 </main>
-<footer><div class="wrap">MicroGap Lab, Algeria. <span id="soc"></span></div></footer>
-<dialog id="dlg"><img id="di" alt=""><div class="dn"><button class="btn" id="pv">Prev</button><button class="btn" id="nx">Next</button><button class="btn" id="cl" style="margin-left:auto">Close</button></div><div class="dd"><h3 id="dt"></h3><p id="dm"></p><div id="dx"></div></div></dialog>
+<footer><div class="wrap">MicroGap Lab, Algeria <span id="fsoc"></span></div></footer>
+<a id="wa" target="_blank" rel="noopener">WhatsApp</a>
+<dialog id="dlg"><img id="di" alt=""><div class="dn"><button class="btn" id="pv" data-i="prev"></button><button class="btn" id="nx" data-i="next"></button><button class="btn" id="cl" style="margin-inline-start:auto" data-i="close"></button></div><div class="dd"><h3 id="dt"></h3><p id="dm"></p><div id="dx"></div></div></dialog>
+<dialog id="gd"><div class="dd" style="padding-top:20px"><h3 data-i="gt"></h3>
+<div class="g"><b>PLA / PLA+</b><p data-i="g1"></p></div><div class="g"><b>PETG</b><p data-i="g2"></p></div><div class="g"><b>ABS / ASA</b><p data-i="g3"></p></div>
+<div class="g"><b data-i="gpt"></b><p data-i="gp1"></p><p data-i="gp2"></p><p data-i="gp3"></p></div>
+<div class="warn" data-i="gw"></div><p style="margin-top:14px"><button class="btn" id="gc" data-i="close"></button></p></div></dialog>
 <script>
+const T={
+en:{nreq:"Request",h1:"Premium 3D printing and CAD design in Algeria.",sub:"Send us the broken part, a photo or your measurements. We model it, print it and deliver it to all 69 wilayas.",cta:"Request a part",cta2:"See our work",tr1:"Free quote",tr2:"Delivery to 69 wilayas",tr3:"Made to your measurements",
+s1t:"Auto and mechanical parts",s1d:"Hard-to-find plastic parts, copied or redesigned for your car or machine.",s2t:"Decor and custom projects",s2d:"Unique pieces made from your idea.",s3t:"CAD design",s3d:"No 3D file? We measure your part or sketch and design it.",
+wt:"Recent work",wd:"Parts and projects we have printed.",all:"All",c_auto:"Auto and mechanical",c_decor:"Decor",c_custom:"Custom project",c_cad:"CAD design",ph:"photos",
+rt:"Request a part",rd:"Describe what you need. We reply with a price and a lead time.",fn:"Name",fp:"Phone",fw:"Wilaya",fm:"Material",gbtn:"Material guide",m0:"Recommend for me (not sure)",m1:"PLA / PLA+ (decor)",m2:"PETG (functional)",m3:"ABS / ASA (heat, auto)",m4:"Specialty / fiber reinforced (on request)",fd:"Your part (use, dimensions in mm, quantity)",send:"Send request",sending:"Sending...",ok:"Request sent. We will reply soon. You can send photos now:",err:"Could not send. Message us directly instead.",wa:"Send photos on WhatsApp",fb:"Send photos on Messenger",close:"Close",prev:"Prev",next:"Next",
+gt:"Which material do I need?",g1:"Decor, figurines, desk items, prototypes. Softens around 55°C: never leave it in a hot car. Budget price.",g2:"Clips, brackets, enclosures, interior car parts. Tough, resists water, holds up to about 70°C. Standard price.",g3:"Parts exposed to sun and heat, gears, exterior car parts. Holds up to about 95°C. Premium price.",gpt:"How the price is set",gp1:"Material and weight.",gp2:"Print time and level of detail.",gp3:"Design: free if you send a 3D file (STL/STEP). A fee applies if we must measure and model your part.",gw:"Not for safety-critical parts (brakes, steering, airbags, seat belts). Near the engine, ask us first: some heat needs special materials."},
+fr:{nreq:"Demande",h1:"Impression 3D et conception CAD haut de gamme en Algérie.",sub:"Envoyez-nous la pièce cassée, une photo ou vos mesures. Nous la modélisons, l'imprimons et la livrons dans les 69 wilayas.",cta:"Demander une pièce",cta2:"Voir nos réalisations",tr1:"Devis gratuit",tr2:"Livraison 69 wilayas",tr3:"Fait selon vos mesures",
+s1t:"Pièces auto et mécaniques",s1d:"Pièces plastiques introuvables, copiées ou redessinées pour votre voiture ou machine.",s2t:"Décor et projets sur mesure",s2d:"Des pièces uniques à partir de votre idée.",s3t:"Conception CAD",s3d:"Pas de fichier 3D ? Nous mesurons votre pièce ou croquis et la dessinons.",
+wt:"Réalisations récentes",wd:"Pièces et projets déjà imprimés.",all:"Tout",c_auto:"Auto et mécanique",c_decor:"Décor",c_custom:"Projet sur mesure",c_cad:"Conception CAD",ph:"photos",
+rt:"Demander une pièce",rd:"Décrivez votre besoin. Nous répondons avec un prix et un délai.",fn:"Nom",fp:"Téléphone",fw:"Wilaya",fm:"Matière",gbtn:"Guide des matières",m0:"Conseillez-moi (je ne sais pas)",m1:"PLA / PLA+ (décor)",m2:"PETG (fonctionnel)",m3:"ABS / ASA (chaleur, auto)",m4:"Spéciale / fibre renforcée (sur demande)",fd:"Votre pièce (usage, dimensions en mm, quantité)",send:"Envoyer la demande",sending:"Envoi en cours...",ok:"Demande envoyée. Nous vous répondons vite. Vous pouvez envoyer des photos :",err:"Envoi impossible. Écrivez-nous directement.",wa:"Envoyer des photos sur WhatsApp",fb:"Envoyer des photos sur Messenger",close:"Fermer",prev:"Préc.",next:"Suiv.",
+gt:"Quelle matière choisir ?",g1:"Décor, figurines, objets de bureau, prototypes. Ramollit vers 55°C : jamais dans une voiture au soleil. Prix économique.",g2:"Clips, supports, boîtiers, pièces d'intérieur auto. Résistant, tient l'eau et environ 70°C. Prix standard.",g3:"Pièces exposées au soleil et à la chaleur, engrenages, pièces extérieures auto. Tient environ 95°C. Prix premium.",gpt:"Comment le prix est fixé",gp1:"Matière et poids.",gp2:"Temps d'impression et niveau de détail.",gp3:"Conception : gratuite si vous envoyez un fichier 3D (STL/STEP), payante si nous devons mesurer et modéliser votre pièce.",gw:"Pas pour les pièces de sécurité (freins, direction, airbags, ceintures). Près du moteur, demandez-nous d'abord : certaines chaleurs exigent des matériaux spéciaux."},
+ar:{nreq:"طلب",h1:"طباعة ثلاثية الأبعاد وتصميم CAD احترافي في الجزائر.",sub:"عندك فكرة، بياسة مكسرة، أو مشروع تحب تجسده؟ نحن هنا للمساعدة. أرسل لنا القطعة أو صورة أو قياساتها، نصممها ونطبعها ونوصلها إلى 69 ولاية.",cta:"اطلب قطعة",cta2:"شاهد أعمالنا",tr1:"عرض سعر مجاني",tr2:"توصيل إلى 69 ولاية",tr3:"حسب قياساتك",
+s1t:"قطع السيارات والميكانيك",s1d:"قطع بلاستيكية يصعب إيجادها، ننسخها أو نعيد تصميمها لسيارتك أو آلتك.",s2t:"ديكور ومشاريع خاصة",s2d:"قطع فريدة من فكرتك.",s3t:"تصميم CAD",s3d:"ما عندك ملف ثلاثي الأبعاد؟ نقيس قطعتك أو رسمك ونصممها.",
+wt:"أحدث الأعمال",wd:"قطع ومشاريع طبعناها.",all:"الكل",c_auto:"سيارات وميكانيك",c_decor:"ديكور",c_custom:"مشروع خاص",c_cad:"تصميم CAD",ph:"صور",
+rt:"اطلب قطعة",rd:"صف ما تحتاجه. نرد عليك بالسعر والمدة.",fn:"الاسم",fp:"الهاتف",fw:"الولاية",fm:"المادة",gbtn:"دليل المواد",m0:"انصحوني (لا أعرف)",m1:"PLA / PLA+ (ديكور)",m2:"PETG (وظيفي)",m3:"ABS / ASA (حرارة، سيارات)",m4:"خاصة / مقواة بالألياف (عند الطلب)",fd:"قطعتك (الاستعمال، الأبعاد بالمم، الكمية)",send:"أرسل الطلب",sending:"جارٍ الإرسال...",ok:"تم إرسال الطلب. سنرد عليك قريباً. يمكنك إرسال الصور الآن:",err:"تعذر الإرسال. راسلنا مباشرة.",wa:"أرسل الصور عبر واتساب",fb:"أرسل الصور عبر ماسنجر",close:"إغلاق",prev:"السابق",next:"التالي",
+gt:"أي مادة أحتاج؟",g1:"ديكور، تماثيل، أغراض مكتب، نماذج أولية. تلين حوالي 55°م: لا تتركها في سيارة تحت الشمس. سعر اقتصادي.",g2:"مشابك، حوامل، علب، قطع داخلية للسيارة. متينة، تقاوم الماء وتتحمل حوالي 70°م. سعر عادي.",g3:"قطع معرضة للشمس والحرارة، تروس، قطع خارجية للسيارة. تتحمل حوالي 95°م. سعر مرتفع.",gpt:"كيف يُحدَّد السعر",gp1:"المادة والوزن.",gp2:"وقت الطباعة ومستوى التفاصيل.",gp3:"التصميم: مجاني إذا أرسلت ملفاً ثلاثي الأبعاد (STL/STEP)، وبمقابل إذا احتجنا لقياس قطعتك ونمذجتها.",gw:"غير مخصصة لقطع السلامة (الفرامل، التوجيه، الوسائد الهوائية، أحزمة الأمان). قرب المحرك اسألنا أولاً: بعض الحرارة تحتاج مواد خاصة."}};
 const $=id=>document.getElementById(id),el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
 const get=u=>fetch(u).then(r=>r.json());
-let items=[],cur=null,idx=0;
-function link(href,label,main){const a=el('a','btn'+(main?' main':''),label);a.href=href;a.target='_blank';a.rel='noopener';return a}
-get('content/settings.json').then(s=>{
- const cta=$('cta'),soc=$('soc'),w=(s.whatsapp||'').replace(/\D/g,'');
- if(w)cta.append(link('https://wa.me/'+w+'?text='+encodeURIComponent('Hello MicroGap Lab, I need a 3D printed part'),'WhatsApp'));
- [['facebook','Facebook'],['instagram','Instagram'],['tiktok','TikTok'],['linktree','Linktree']].forEach(([k,n])=>{
-  if(s[k]){if(k!=='linktree')cta.append(link(s[k],n));const a=el('a',null,n);a.href=s[k];a.target='_blank';a.rel='noopener';soc.append(a,' ')}});
- if(s.email){const a=el('a',null,s.email);a.href='mailto:'+s.email;soc.append(a)}
-}).catch(()=>{});
-get('content/gallery.json').then(d=>{items=(d.items||[]).sort((a,b)=>(b.date||'').localeCompare(a.date||''));cats();draw('All')}).catch(()=>{$('grid').textContent='Gallery will appear here once the site is online.'});
-function cats(){const cs=['All',...new Set(items.map(i=>i.category).filter(Boolean))];cs.forEach((c,i)=>{const b=el('button','chip',c);b.setAttribute('aria-pressed',i==0);b.onclick=()=>{[...$('chips').children].forEach(x=>x.setAttribute('aria-pressed',x===b));draw(c)};$('chips').append(b)})}
-function draw(c){const g=$('grid');g.replaceChildren();items.filter(i=>c==='All'||i.category===c).forEach(i=>{
- const b=el('button','card'),p=el('div','ph');
- if(i.images&&i.images[0]){const m=el('img');m.src=i.images[0];m.alt=i.title;m.loading='lazy';m.onerror=()=>m.remove();p.append(m)}
- if(i.images&&i.images.length>1)p.append(el('i',null,i.images.length+' photos'));
- const t=el('div','t');t.append(el('b',null,i.title),el('span',null,[i.category,i.material,i.date].filter(Boolean).join(' | ')));
- b.append(p,t);b.onclick=()=>open(i);g.append(b)})}
-function show(){const im=cur.images||[];const d=$('di');d.style.display=im.length?'block':'none';if(im.length){d.src=im[idx];d.alt=cur.title}$('pv').style.display=$('nx').style.display=im.length>1?'':'none'}
-function open(i){cur=i;idx=0;$('dt').textContent=i.title;$('dm').textContent=[i.category,i.material,i.date].filter(Boolean).join(' | ');$('dx').textContent=i.description||'';show();$('dlg').showModal()}
+let L,S={},items=[],cur=null,idx=0,F='all';
+try{L=localStorage.getItem('lg')}catch(_){}
+if(!T[L]){const b=(navigator.language||'').slice(0,2);L=T[b]?b:'fr'}
+const t=k=>T[L][k]||T.en[k]||'';
+const ck=c=>{c=(c||'').toLowerCase();return c.startsWith('auto')?'c_auto':c.startsWith('decor')?'c_decor':c.startsWith('cad')?'c_cad':c?'c_custom':''};
+function link(h,n,c){const a=el('a',c||'pill',n);a.href=h;a.target='_blank';a.rel='noopener';return a}
+function apply(){document.documentElement.lang=L;document.documentElement.dir=L==='ar'?'rtl':'ltr';
+ document.querySelectorAll('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));
+ document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===L));cats();draw()}
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{L=b.dataset.l;try{localStorage.setItem('lg',L)}catch(_){}apply()});
+function cats(){const c=$('chips');c.replaceChildren();['all',...new Set(items.map(i=>ck(i.category)).filter(Boolean))].forEach(k=>{const b=el('button','pill',t(k));b.setAttribute('aria-pressed',k===F);b.onclick=()=>{F=k;cats();draw()};c.append(b)})}
+function draw(){const g=$('grid');g.replaceChildren();items.filter(i=>F==='all'||ck(i.category)===F).forEach(i=>{
+ const b=el('button','card'),p=el('div','ph'),im=i.images||[];
+ if(im[0]){const m=el('img');m.src=im[0];m.alt=i.title;m.loading='lazy';m.onerror=()=>m.remove();p.append(m)}
+ if(im.length>1)p.append(el('i',null,im.length+' '+t('ph')));
+ const d=el('div','t');d.append(el('b',null,i.title),el('span',null,[t(ck(i.category)),i.material,i.layer,i.time].filter(Boolean).join(' | ')));
+ b.append(p,d);b.onclick=()=>open(i);g.append(b)})}
+function show(){const im=cur.images||[],d=$('di');d.style.display=im.length?'block':'none';if(im.length){d.src=im[idx];d.alt=cur.title}$('pv').style.display=$('nx').style.display=im.length>1?'':'none'}
+function open(i){cur=i;idx=0;$('dt').textContent=i.title;$('dm').textContent=[t(ck(i.category)),i.material,i.layer,i.time,i.date].filter(Boolean).join(' | ');$('dx').textContent=i.description||'';show();$('dlg').showModal()}
 $('pv').onclick=()=>{idx=(idx-1+cur.images.length)%cur.images.length;show()};$('nx').onclick=()=>{idx=(idx+1)%cur.images.length;show()};$('cl').onclick=()=>$('dlg').close();
-$('dlg').onclick=e=>{if(e.target===$('dlg'))$('dlg').close()};
-$('f').addEventListener('submit',async e=>{e.preventDefault();const m=$('msg');m.className='';m.textContent='Sending...';
- try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{Accept:'application/json'},body:new FormData($('f'))});const d=await r.json();
- if(!d.success)throw 0;m.className='ok';m.textContent='Request sent. We will reply soon.';$('f').reset()}catch(_){m.className='err';m.textContent='Could not send. Message us on Instagram or Facebook instead.'}});
+$('gb').onclick=()=>$('gd').showModal();$('gc').onclick=()=>$('gd').close();
+['dlg','gd'].forEach(n=>$(n).onclick=e=>{if(e.target===$(n))$(n).close()});
+get('content/settings.json').then(s=>{S=s;
+ const lg=$('logo');lg.onload=()=>{lg.hidden=false;const ic=el('link');ic.rel='icon';ic.href=lg.src;document.head.append(ic)};lg.src=s.logo||'images/logo.png';
+ [['facebook','FB'],['instagram','IG'],['tiktok','TT']].forEach(([k,n])=>{if(s[k]){$('soc').append(link(s[k],n),' ');$('fsoc').append(' | ',link(s[k],n,'x'))}});
+ if(s.email){const a=el('a','x',s.email);a.href='mailto:'+s.email;$('fsoc').append(' | ',a)}
+ const w=(s.whatsapp||'').replace(/\D/g,'');if(w){const a=$('wa');a.href='https://wa.me/'+w+'?text='+encodeURIComponent('MicroGap Lab');a.style.display='block'}
+}).catch(()=>{});
+get('content/gallery.json').then(d=>{items=(d.items||[]).sort((a,b)=>(b.date||'').localeCompare(a.date||''));apply()}).catch(()=>apply());
+apply();
+$('f').addEventListener('submit',async e=>{e.preventDefault();const m=$('msg'),a=$('after');m.className='';m.textContent=t('sending');a.style.display='none';
+ try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{Accept:'application/json'},body:new FormData($('f'))});const d=await r.json();if(!d.success)throw 0;
+ m.className='ok';m.textContent=t('ok');$('f').reset();a.replaceChildren();
+ const w=(S.whatsapp||'').replace(/\D/g,'');
+ if(w)a.append(link('https://wa.me/'+w,t('wa'),'btn main'));else if(S.facebook)a.append(link(S.facebook,t('fb'),'btn main'));
+ if(a.children.length)a.style.display='flex'}catch(_){m.className='err';m.textContent=t('err')}});
 </script></body></html>
