@@ -40,6 +40,14 @@ collections:
                 name: material
                 widget: string
                 required: false
+              - label: Layer height, for example 0.16 mm
+                name: layer
+                widget: string
+                required: false
+              - label: Print time, for example 4 h
+                name: time
+                widget: string
+                required: false
               - label: Description
                 name: description
                 widget: text
@@ -53,10 +61,14 @@ collections:
                   name: photo
                   widget: image
       - name: settings
-        label: Contact links
+        label: Logo and contact links
         file: content/settings.json
         format: json
         fields:
+          - label: Logo (square image works best)
+            name: logo
+            widget: image
+            required: false
           - label: WhatsApp number, digits only like 213555123456
             name: whatsapp
             widget: string
@@ -71,10 +83,6 @@ collections:
             required: false
           - label: TikTok URL
             name: tiktok
-            widget: string
-            required: false
-          - label: Linktree URL
-            name: linktree
             widget: string
             required: false
           - label: Public email
