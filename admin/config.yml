@@ -89,3 +89,7 @@ collections:
             name: email
             widget: string
             required: false
+          - label: Web3Forms access key (so you never edit index.html)
+            name: form_key
+            widget: string
+            required: false
