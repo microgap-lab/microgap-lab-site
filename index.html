@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark">
 <title>MicroGap Lab</title>
 <meta name="description" content="3D printing and CAD design in Algeria. Custom auto and mechanical parts, decor, delivery to 69 wilayas.">
 <style>
-:root{--bg:#0b0f17;--panel:#121824;--line:#243041;--ink:#e8eef4;--mute:#97a6b3;--teal:#3dd6c8;--org:#f26a1b}
+:root{color-scheme:dark;--bg:#0b0f17;--panel:#121824;--line:#243041;--ink:#e8eef4;--mute:#97a6b3;--teal:#3dd6c8;--org:#f26a1b}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,"Segoe UI",Roboto,Arial,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,"Segoe UI",Roboto,"Noto Sans Arabic",Tahoma,Arial,sans-serif}
+[dir=rtl] *{letter-spacing:0!important}
 a{color:inherit}.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
 nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 0}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem}
@@ -117,8 +118,11 @@ gt:"أي مادة أحتاج؟",g1:"ديكور، تماثيل، أغراض مك�
 const $=id=>document.getElementById(id),el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
 const get=u=>fetch(u).then(r=>r.json());
 let L,S={},items=[],cur=null,idx=0,F='all';
-try{L=localStorage.getItem('lg')}catch(_){}
+function busy(){try{sessionStorage.setItem('busy','1');setTimeout(()=>sessionStorage.removeItem('busy'),3000)}catch(_){}}
+try{L=localStorage.getItem('lg');if(sessionStorage.getItem('busy')){L='fr';localStorage.removeItem('lg')}}catch(_){}
+const q=new URLSearchParams(location.search).get('lang');if(T[q])L=q;
 if(!T[L]){const b=(navigator.language||'').slice(0,2);L=T[b]?b:'fr'}
+if(L==='ar')busy();
 const t=k=>T[L][k]||T.en[k]||'';
 const ck=c=>{c=(c||'').toLowerCase();return c.startsWith('auto')?'c_auto':c.startsWith('decor')?'c_decor':c.startsWith('cad')?'c_cad':c.startsWith('toys')?'c_toys':c.startsWith('art')?'c_art':c?'c_custom':''};
 function link(h,n,c){const a=el('a',c||'pill',n);a.href=h;a.target='_blank';a.rel='noopener';return a}
@@ -126,7 +130,7 @@ function apply(){document.documentElement.lang=L;document.documentElement.dir=L=
  document.querySelectorAll('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));
  document.querySelectorAll('[data-ph]').forEach(e=>e.placeholder=t(e.dataset.ph));
  document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===L));cats();draw()}
-document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{L=b.dataset.l;try{localStorage.setItem('lg',L)}catch(_){}apply()});
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{L=b.dataset.l;if(L==='ar')busy();try{localStorage.setItem('lg',L)}catch(_){}apply()});
 function cats(){const c=$('chips');c.replaceChildren();['all',...new Set(items.map(i=>ck(i.category)).filter(Boolean))].forEach(k=>{const b=el('button','pill',t(k));b.setAttribute('aria-pressed',k===F);b.onclick=()=>{F=k;cats();draw()};c.append(b)})}
 function draw(){const g=$('grid');g.replaceChildren();items.filter(i=>F==='all'||ck(i.category)===F).forEach(i=>{
  const b=el('button','card'),p=el('div','ph'),im=i.images||[];
