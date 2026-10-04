@@ -50,6 +50,8 @@ textarea{min-height:110px;resize:vertical}.row{display:grid;grid-template-column
 #msg{font-weight:700;margin:0}.ok{color:var(--teal)}.err{color:#ff7b6b}#after{display:none;gap:10px;flex-wrap:wrap}
 .hp{position:absolute;left:-9999px}footer{border-top:1px solid var(--line);padding:26px 0 80px;color:var(--mute);font-size:.95rem}
 #wa{display:none;position:fixed;inset-block-end:18px;inset-inline-end:18px;background:#25d366;color:#04210f;font-weight:700;padding:12px 18px;border-radius:99px;text-decoration:none;box-shadow:0 6px 20px #0008}
+[hidden]{display:none!important}.nl{display:flex;gap:2px;max-width:100%;overflow-x:auto}.nl a{color:var(--mute);text-decoration:none;padding:6px 9px;white-space:nowrap}.nl a:hover{color:var(--ink)}
+.rg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}.st{color:var(--teal);letter-spacing:2px;margin-bottom:6px}.rv b{margin-top:10px;font-size:.95rem}.rv img{width:100%;border-radius:8px;margin-top:10px}
 .pill svg{vertical-align:-3px}.sl{display:inline-flex;align-items:center;gap:6px}
 .fl{display:flex;flex-wrap:wrap;gap:14px}
 .fc{display:flex;align-items:center;gap:12px;padding:16px 22px;border-radius:12px;background:#ffffff08;border:1px solid #ffffff14;text-decoration:none;font-weight:700;transition:transform .2s,border-color .2s,box-shadow .2s}
@@ -60,19 +62,20 @@ textarea{min-height:110px;resize:vertical}.row{display:grid;grid-template-column
 </style></head><body>
 <div class="hero"><div class="wrap">
 <nav><div class="brand"><img id="logo" alt="" hidden>MicroGap Lab</div>
-<div class="sp"><span class="soc" id="soc"></span><span class="lang"><button class="pill" data-l="ar" lang="ar">العربية</button> <button class="pill" data-l="fr" lang="fr">Français</button> <button class="pill" data-l="en" lang="en">English</button></span><a class="pill" href="#request" data-i="nreq"></a></div></nav>
+<div class="sp"><span class="nl"><a href="#custom" data-i="nc"></a><a href="#work" data-i="nw"></a><a href="#reviews" id="nrv" hidden data-i="nr"></a></span><span class="lang"><button class="pill" data-l="ar" lang="ar">العربية</button> <button class="pill" data-l="fr" lang="fr">Français</button> <button class="pill" data-l="en" lang="en">English</button></span><a class="pill" href="#request" data-i="nreq"></a></div></nav>
 <h1 data-i="h1"></h1><div class="bar"></div>
 <p class="sub" data-i="sub"></p>
-<div class="btns"><a class="btn main" href="#request" data-i="cta"></a><a class="btn" href="#work" data-i="cta2"></a></div>
+<div class="btns"><a class="btn main" href="#request" data-i="cta"></a><a class="btn" id="csoc" href="#follow" hidden data-i="cta3"></a></div>
 <div class="trust"><span data-i="tr1"></span><span data-i="tr2"></span><span data-i="tr3"></span></div>
 </div></div>
 <main>
-<section><div class="wrap"><div class="bento">
+<section id="custom"><div class="wrap"><h2 data-i="ct"></h2><p class="lead" data-i="cd"></p><div class="bento">
 <div class="b"><b data-i="s1t"></b><p data-i="s1d"></p><span class="tag">PETG</span><span class="tag">ABS / ASA</span></div>
 <div class="b"><b data-i="s2t"></b><p data-i="s2d"></p><span class="tag">PLA</span><span class="tag">Matte</span></div>
 <div class="b w"><b data-i="s3t"></b><p data-i="s3d"></p><span class="tag">STL</span><span class="tag">STEP</span></div>
 </div></div></section>
 <section id="work"><div class="wrap"><h2 data-i="wt"></h2><p class="lead" data-i="wd"></p><div class="chips" id="chips"></div><div class="grid" id="grid"></div></div></section>
+<section id="reviews" hidden><div class="wrap"><h2 data-i="rvt"></h2><p class="lead" data-i="rvd"></p><div class="rg" id="rg"></div></div></section>
 <section id="request"><div class="wrap"><h2 data-i="rt"></h2><p class="lead" data-i="rd"></p>
 <form id="f">
 <input type="hidden" name="access_key" value="a444946c-529d-42ba-a4d0-a5f6e24095f5"><input type="hidden" name="subject" value="MicroGap Lab: new request"><input type="hidden" name="from_name" value="MicroGap Lab website"><input class="hp" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -93,17 +96,17 @@ textarea{min-height:110px;resize:vertical}.row{display:grid;grid-template-column
 <div class="warn" data-i="gw"></div><p style="margin-top:14px"><button class="btn" id="gc" data-i="close"></button></p></div></dialog>
 <script>
 const T={
-en:{nreq:"Request",fol:"Follow us",fold:"See our new prints and projects as soon as we post them.",h1:"Premium 3D printing and CAD design in Algeria.",sub:"Send us the broken part, a photo or your measurements. We model it, print it and deliver it to all 69 wilayas.",cta:"Request a part",cta2:"See our work",tr1:"Free quote",tr2:"Delivery to 69 wilayas",tr3:"Made to your measurements",
+en:{nreq:"Request",fol:"Follow us",fold:"See our new prints and projects as soon as we post them.",nw:"Our work",nc:"Custom orders",nr:"Reviews",cta3:"Contact us on social media",ct:"100% made to order",cd:"Nothing here is mass-produced. Every part is measured, modeled and printed for you.",rvt:"What clients say",rvd:"Real feedback from people we printed for.",c_toys:"Toys and gaming",c_art:"Art and sculptures",h1:"Premium 3D printing and CAD design in Algeria.",sub:"Send us the broken part, a photo or your measurements. We model it, print it and deliver it to all 69 wilayas.",cta:"Request a part",cta2:"See our work",tr1:"Free quote",tr2:"Delivery to 69 wilayas",tr3:"Made to your measurements",
 s1t:"Auto and mechanical parts",s1d:"Hard-to-find plastic parts, copied or redesigned for your car or machine.",s2t:"Decor and custom projects",s2d:"Unique pieces made from your idea.",s3t:"CAD design",s3d:"No 3D file? We measure your part or sketch and design it.",
 wt:"Recent work",wd:"Parts and projects we have printed.",all:"All",c_auto:"Auto and mechanical",c_decor:"Decor",c_custom:"Custom project",c_cad:"CAD design",ph:"photos",
 rt:"Request a part",rd:"Describe what you need. We reply with a price and a lead time.",fn:"Name",fp:"Phone",fw:"Wilaya",fm:"Material",gbtn:"Material guide",m0:"Recommend for me (not sure)",m1:"PLA / PLA+ (decor)",m2:"PETG (functional)",m3:"ABS / ASA (heat, auto)",m4:"Specialty / fiber reinforced (on request)",fd:"Your part (use, dimensions in mm, quantity)",send:"Send request",sending:"Sending...",ok:"Request sent. We will reply soon. You can send photos now:",err:"Could not send. Message us directly instead.",wa:"Send photos on WhatsApp",fb:"Send photos on Messenger",close:"Close",prev:"Prev",next:"Next",
 gt:"Which material do I need?",g1:"Decor, figurines, desk items, prototypes. Softens around 55°C: never leave it in a hot car. Budget price.",g2:"Clips, brackets, enclosures, interior car parts. Tough, resists water, holds up to about 70°C. Standard price.",g3:"Parts exposed to sun and heat, gears, exterior car parts. Holds up to about 95°C. Premium price.",gpt:"How the price is set",gp1:"Material and weight.",gp2:"Print time and level of detail.",gp3:"Design: free if you send a 3D file (STL/STEP). A fee applies if we must measure and model your part.",gw:"Not for safety-critical parts (brakes, steering, airbags, seat belts). Near the engine, ask us first: some heat needs special materials."},
-fr:{nreq:"Demande",fol:"Suivez-nous",fold:"Découvrez nos nouvelles impressions dès leur publication.",h1:"Impression 3D et conception CAD haut de gamme en Algérie.",sub:"Envoyez-nous la pièce cassée, une photo ou vos mesures. Nous la modélisons, l'imprimons et la livrons dans les 69 wilayas.",cta:"Demander une pièce",cta2:"Voir nos réalisations",tr1:"Devis gratuit",tr2:"Livraison 69 wilayas",tr3:"Fait selon vos mesures",
+fr:{nreq:"Demande",fol:"Suivez-nous",fold:"Découvrez nos nouvelles impressions dès leur publication.",nw:"Réalisations",nc:"Sur mesure",nr:"Avis",cta3:"Contactez-nous sur les réseaux",ct:"100 % sur mesure",cd:"Rien n'est produit en série. Chaque pièce est mesurée, modélisée et imprimée pour vous.",rvt:"Ce que disent nos clients",rvd:"Avis réels de clients pour qui nous avons imprimé.",c_toys:"Jouets et gaming",c_art:"Art et sculptures",h1:"Impression 3D et conception CAD haut de gamme en Algérie.",sub:"Envoyez-nous la pièce cassée, une photo ou vos mesures. Nous la modélisons, l'imprimons et la livrons dans les 69 wilayas.",cta:"Demander une pièce",cta2:"Voir nos réalisations",tr1:"Devis gratuit",tr2:"Livraison 69 wilayas",tr3:"Fait selon vos mesures",
 s1t:"Pièces auto et mécaniques",s1d:"Pièces plastiques introuvables, copiées ou redessinées pour votre voiture ou machine.",s2t:"Décor et projets sur mesure",s2d:"Des pièces uniques à partir de votre idée.",s3t:"Conception CAD",s3d:"Pas de fichier 3D ? Nous mesurons votre pièce ou croquis et la dessinons.",
 wt:"Réalisations récentes",wd:"Pièces et projets déjà imprimés.",all:"Tout",c_auto:"Auto et mécanique",c_decor:"Décor",c_custom:"Projet sur mesure",c_cad:"Conception CAD",ph:"photos",
 rt:"Demander une pièce",rd:"Décrivez votre besoin. Nous répondons avec un prix et un délai.",fn:"Nom",fp:"Téléphone",fw:"Wilaya",fm:"Matière",gbtn:"Guide des matières",m0:"Conseillez-moi (je ne sais pas)",m1:"PLA / PLA+ (décor)",m2:"PETG (fonctionnel)",m3:"ABS / ASA (chaleur, auto)",m4:"Spéciale / fibre renforcée (sur demande)",fd:"Votre pièce (usage, dimensions en mm, quantité)",send:"Envoyer la demande",sending:"Envoi en cours...",ok:"Demande envoyée. Nous vous répondons vite. Vous pouvez envoyer des photos :",err:"Envoi impossible. Écrivez-nous directement.",wa:"Envoyer des photos sur WhatsApp",fb:"Envoyer des photos sur Messenger",close:"Fermer",prev:"Préc.",next:"Suiv.",
 gt:"Quelle matière choisir ?",g1:"Décor, figurines, objets de bureau, prototypes. Ramollit vers 55°C : jamais dans une voiture au soleil. Prix économique.",g2:"Clips, supports, boîtiers, pièces d'intérieur auto. Résistant, tient l'eau et environ 70°C. Prix standard.",g3:"Pièces exposées au soleil et à la chaleur, engrenages, pièces extérieures auto. Tient environ 95°C. Prix premium.",gpt:"Comment le prix est fixé",gp1:"Matière et poids.",gp2:"Temps d'impression et niveau de détail.",gp3:"Conception : gratuite si vous envoyez un fichier 3D (STL/STEP), payante si nous devons mesurer et modéliser votre pièce.",gw:"Pas pour les pièces de sécurité (freins, direction, airbags, ceintures). Près du moteur, demandez-nous d'abord : certaines chaleurs exigent des matériaux spéciaux."},
-ar:{nreq:"طلب",fol:"تابعنا",fold:"شاهد أحدث أعمالنا فور نشرها.",h1:"طباعة ثلاثية الأبعاد وتصميم CAD احترافي في الجزائر.",sub:"عندك فكرة، بياسة مكسرة، أو مشروع تحب تجسده؟ نحن هنا للمساعدة. أرسل لنا القطعة أو صورة أو قياساتها، نصممها ونطبعها ونوصلها إلى 69 ولاية.",cta:"اطلب قطعة",cta2:"شاهد أعمالنا",tr1:"عرض سعر مجاني",tr2:"توصيل إلى 69 ولاية",tr3:"حسب قياساتك",
+ar:{nreq:"طلب",fol:"تابعنا",fold:"شاهد أحدث أعمالنا فور نشرها.",nw:"أعمالنا",nc:"طلب خاص",nr:"آراء الزبائن",cta3:"تواصل معنا عبر مواقع التواصل",ct:"صناعة حسب الطلب 100%",cd:"لا شيء هنا يُنتج بالجملة. كل قطعة تُقاس وتُصمم وتُطبع من أجلك.",rvt:"آراء زبائننا",rvd:"آراء حقيقية من زبائن طبعنا لهم.",c_toys:"ألعاب",c_art:"فن ومنحوتات",h1:"طباعة ثلاثية الأبعاد وتصميم CAD احترافي في الجزائر.",sub:"عندك فكرة، بياسة مكسرة، أو مشروع تحب تجسده؟ نحن هنا للمساعدة. أرسل لنا القطعة أو صورة أو قياساتها، نصممها ونطبعها ونوصلها إلى 69 ولاية.",cta:"اطلب قطعة",cta2:"شاهد أعمالنا",tr1:"عرض سعر مجاني",tr2:"توصيل إلى 69 ولاية",tr3:"حسب قياساتك",
 s1t:"قطع السيارات والميكانيك",s1d:"قطع بلاستيكية يصعب إيجادها، ننسخها أو نعيد تصميمها لسيارتك أو آلتك.",s2t:"ديكور ومشاريع خاصة",s2d:"قطع فريدة من فكرتك.",s3t:"تصميم CAD",s3d:"ما عندك ملف ثلاثي الأبعاد؟ نقيس قطعتك أو رسمك ونصممها.",
 wt:"أحدث الأعمال",wd:"قطع ومشاريع طبعناها.",all:"الكل",c_auto:"سيارات وميكانيك",c_decor:"ديكور",c_custom:"مشروع خاص",c_cad:"تصميم CAD",ph:"صور",
 rt:"اطلب قطعة",rd:"صف ما تحتاجه. نرد عليك بالسعر والمدة.",fn:"الاسم",fp:"الهاتف",fw:"الولاية",fm:"المادة",gbtn:"دليل المواد",m0:"انصحوني (لا أعرف)",m1:"PLA / PLA+ (ديكور)",m2:"PETG (وظيفي)",m3:"ABS / ASA (حرارة، سيارات)",m4:"خاصة / مقواة بالألياف (عند الطلب)",fd:"قطعتك (الاستعمال، الأبعاد بالمم، الكمية)",send:"أرسل الطلب",sending:"جارٍ الإرسال...",ok:"تم إرسال الطلب. سنرد عليك قريباً. يمكنك إرسال الصور الآن:",err:"تعذر الإرسال. راسلنا مباشرة.",wa:"أرسل الصور عبر واتساب",fb:"أرسل الصور عبر ماسنجر",close:"إغلاق",prev:"السابق",next:"التالي",
@@ -114,7 +117,7 @@ let L,S={},items=[],cur=null,idx=0,F='all';
 try{L=localStorage.getItem('lg')}catch(_){}
 if(!T[L]){const b=(navigator.language||'').slice(0,2);L=T[b]?b:'fr'}
 const t=k=>T[L][k]||T.en[k]||'';
-const ck=c=>{c=(c||'').toLowerCase();return c.startsWith('auto')?'c_auto':c.startsWith('decor')?'c_decor':c.startsWith('cad')?'c_cad':c?'c_custom':''};
+const ck=c=>{c=(c||'').toLowerCase();return c.startsWith('auto')?'c_auto':c.startsWith('decor')?'c_decor':c.startsWith('cad')?'c_cad':c.startsWith('toys')?'c_toys':c.startsWith('art')?'c_art':c?'c_custom':''};
 function link(h,n,c){const a=el('a',c||'pill',n);a.href=h;a.target='_blank';a.rel='noopener';return a}
 function apply(){document.documentElement.lang=L;document.documentElement.dir=L==='ar'?'rtl':'ltr';
  document.querySelectorAll('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));
@@ -137,13 +140,13 @@ get('content/settings.json').then(s=>{S=s;
  const IC={facebook:'<path d="M14 8.5V7c0-.7.3-1 1-1h2.2V2.5H14.600C11.800 2.500 10 4.200 10 7v1.500H7.200V12H10v9.500h4V12h2.800l.6-3.500z"/>',instagram:'<rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.500" cy="6.500" r="1.300"/>',tiktok:'<path d="M14 3h3.200c.2 2 1.600 3.500 3.800 3.700v3.200c-1.300 0-2.500-.4-3.700-1.100v5.800a6 6 0 1 1-6-6v3.300a2.700 2.700 0 1 0 2.700 2.700z"/>'},NM={facebook:'Facebook',instagram:'Instagram',tiktok:'TikTok'};
  const ico=k=>{const v=document.createElementNS('http://www.w3.org/2000/svg','svg');v.setAttribute('viewBox','0 0 24 24');v.setAttribute('width','18');v.setAttribute('height','18');v.setAttribute('fill','currentColor');v.setAttribute('aria-hidden','true');v.innerHTML=IC[k];return v};
  let any=false;Object.keys(NM).forEach(k=>{if(!s[k])return;any=true;
-  const a=link(s[k],'','pill sl');a.title=NM[k];a.setAttribute('aria-label',NM[k]);a.append(ico(k),el('span','nm',NM[k]));$('soc').append(a,' ');
   const c=link(s[k],'','fc');c.append(ico(k),el('span',null,NM[k]));$('fl').append(c)});
- if(any)$('follow').hidden=false;
+ if(any){$('follow').hidden=false;$('csoc').hidden=false}
  if(s.email){const a=el('a','x',s.email);a.href='mailto:'+s.email;$('fsoc').append(' | ',a)}
  const w=(s.whatsapp||'').replace(/\D/g,'');if(w){const a=$('wa');a.href='https://wa.me/'+w+'?text='+encodeURIComponent('MicroGap Lab');a.style.display='block'}
 }).catch(()=>{});
 get('content/gallery.json').then(d=>{items=(d.items||[]).sort((a,b)=>(b.date||'').localeCompare(a.date||''));apply()}).catch(()=>apply());
+get('content/reviews.json').then(d=>{const r=(d.items||[]).filter(x=>x.text);if(!r.length)return;r.forEach(x=>{const b=el('div','b rv'),n=Math.max(1,Math.min(5,Number(x.rating)||5));b.append(el('div','st','★'.repeat(n)+'☆'.repeat(5-n)),el('p',null,x.text),el('b',null,[x.name,x.city].filter(Boolean).join(' | ')));if(x.photo){const m=el('img');m.src=x.photo;m.alt='';m.loading='lazy';m.onerror=()=>m.remove();b.append(m)}$('rg').append(b)});$('reviews').hidden=false;$('nrv').hidden=false}).catch(()=>{});
 apply();
 $('f').addEventListener('submit',async e=>{e.preventDefault();const m=$('msg'),a=$('after');m.className='';m.textContent=t('sending');a.style.display='none';
  const fd=new FormData($('f'));if(S.form_key)fd.set('access_key',S.form_key);
