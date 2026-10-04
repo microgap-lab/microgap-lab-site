@@ -35,6 +35,8 @@ collections:
                   - Auto and Mechanical
                   - Decor
                   - Custom project
+                  - Toys and Gaming
+                  - Art and Sculptures
                   - CAD design
               - label: Material
                 name: material
@@ -93,3 +95,35 @@ collections:
             name: form_key
             widget: string
             required: false
+      - name: reviews
+        label: Client reviews
+        file: content/reviews.json
+        format: json
+        fields:
+          - label: Reviews
+            name: items
+            widget: list
+            add_to_top: true
+            summary: "{{fields.name}}"
+            fields:
+              - label: Client name (first name or initials)
+                name: name
+                widget: string
+              - label: Wilaya
+                name: city
+                widget: string
+                required: false
+              - label: Rating (1 to 5)
+                name: rating
+                widget: number
+                value_type: int
+                min: 1
+                max: 5
+                default: 5
+              - label: Comment
+                name: text
+                widget: text
+              - label: Photo (print installed, or screenshot of their message)
+                name: photo
+                widget: image
+                required: false
