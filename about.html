@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light">
+<script>(function(){var r=document.documentElement,t=null;try{t=localStorage.getItem("th")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";r.dataset.theme=t})()</script>
+<title>MicroGap Lab</title>
+<style>
+:root{--bg:#0b0f17;--panel:#121824;--line:#243041;--ink:#e8eef4;--mute:#97a6b3;--teal:#3dd6c8;--org:#f26a1b;--onteal:#06201e;--hdr:#0b0f17f0;--fade:900ms;--edge:40%;--md:to right;color-scheme:dark}
+:root[data-theme=light]{--bg:#f4f7fa;--panel:#fff;--line:#d5dde6;--ink:#101a24;--mute:#52606c;--teal:#08756d;--org:#d9560c;--onteal:#fff;--hdr:#f4f7faf0;color-scheme:light}
+:root[dir=rtl]{--md:to left}
+*{box-sizing:border-box}html{scroll-behavior:smooth}[data-off]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,"Segoe UI",Roboto,"Noto Sans Arabic",Tahoma,Arial,sans-serif}
+[dir=rtl] *{letter-spacing:0!important}a{color:inherit}.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:5;background:var(--hdr);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 20px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none}.brand img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.sp{margin-inline-start:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pill{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:99px;padding:5px 11px;font:inherit;font-size:.85rem;text-decoration:none;cursor:pointer}
+.pill[aria-pressed=true]{background:var(--teal);border-color:var(--teal);color:var(--onteal)}
+#pg{position:absolute;inset-inline-start:0;bottom:-1px;height:3px;width:0;background:var(--org)}
+.intro{padding:30px 0 0}h1{font-size:clamp(1.8rem,5vw,3rem);line-height:1.12;margin:0 0 6px}.hint{color:var(--mute);margin:0}
+.g{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:24px}
+.step{min-height:85vh;display:flex;align-items:center;opacity:.25;transition:opacity var(--fade) ease-in-out}.step.on{opacity:1}
+.n{color:var(--teal);font-weight:700;letter-spacing:.1em}
+.step h2{font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.15;margin:6px 0 10px}.step p{color:var(--mute);font-size:1.1rem;max-width:26em;margin:0}
+.sb{position:sticky;top:70px;height:calc(100vh - 90px);align-self:start}
+#stage{position:relative;height:100%}
+#stage img{position:absolute;top:50%;inset-inline-end:0;transform:translateY(-50%);opacity:0;transition:opacity var(--fade) ease-in-out;
+-webkit-mask-image:linear-gradient(var(--md),transparent 0,rgba(0,0,0,.18) calc(var(--edge)*.3),rgba(0,0,0,.55) calc(var(--edge)*.62),#000 var(--edge));
+mask-image:linear-gradient(var(--md),transparent 0,rgba(0,0,0,.18) calc(var(--edge)*.3),rgba(0,0,0,.55) calc(var(--edge)*.62),#000 var(--edge))}
+#stage.cover img{top:0;transform:none;width:100%;height:100%;object-fit:cover}
+#stage img.on{opacity:1}
+.end{padding:50px 0 90px;text-align:center}
+.btn{display:inline-block;padding:13px 24px;border-radius:8px;background:var(--teal);color:var(--onteal);font-weight:700;text-decoration:none}
+:focus-visible{outline:3px solid var(--org);outline-offset:2px}
+@media(max-width:760px){.g{grid-template-columns:1fr;gap:0}:root,:root[dir=rtl]{--md:to top}
+.sb{order:-1;top:52px;height:52vh;z-index:2;background:var(--bg)}.step{min-height:62vh}
+#stage img{top:0;inset-inline-end:auto;left:50%;transform:translateX(-50%)}#stage.cover img{left:0;transform:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.step,#stage img{transition:none}}
+</style></head><body>
+<header><div class="bar"><a class="brand" href="index.html"><img id="logo" alt="" hidden>MicroGap Lab</a>
+<div class="sp"><button class="pill" id="tb" type="button">&#9728;</button><a class="pill" href="index.html" data-u="back"></a><span class="lang"><button class="pill" data-l="ar" lang="ar">العربية</button> <button class="pill" data-l="fr" lang="fr">Français</button> <button class="pill" data-l="en" lang="en">English</button></span></div></div><div id="pg"></div></header>
+<main class="wrap" id="app" data-off="1">
+<div class="intro"><h1 data-u="ttl"></h1><p class="hint" data-u="sc"></p></div>
+<div class="g"><div id="steps"></div><div class="sb"><div id="stage"></div></div></div>
+<div class="end"><a class="btn" href="index.html#request" data-u="cta"></a></div>
+</main>
+<div class="wrap" id="soon" data-off="1" style="padding:90px 20px;text-align:center"><h1 data-u="soon"></h1><p><a class="btn" href="index.html" data-u="back"></a></p></div>
+<script>
+const U={en:{back:"Home",cta:"Request a part",ttl:"How MicroGap Lab works",sc:"Scroll down",soon:"This page is coming soon",tt:"Light / dark mode"},fr:{back:"Accueil",cta:"Demander une pièce",ttl:"Comment travaille MicroGap Lab",sc:"Faites défiler",soon:"Cette page arrive bientôt",tt:"Mode clair / sombre"},ar:{back:"الرئيسية",cta:"اطلب قطعة",ttl:"كيف يعمل MicroGap Lab",sc:"مرر للأسفل",soon:"هذه الصفحة قريباً",tt:"الوضع الفاتح / الداكن"}};
+const $=id=>document.getElementById(id),el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+const off=(e,v)=>v?e.setAttribute('data-off','1'):e.removeAttribute('data-off');
+let L,steps=[],io,D={},S={};
+const on=(k,d)=>D[k]===undefined?(d===undefined?true:d):!!D[k];
+try{L=localStorage.getItem('lg')}catch(_){}
+const q=new URLSearchParams(location.search).get('lang');if(U[q])L=q;
+const had=!!U[L];if(!U[L]){const b=(navigator.language||'').slice(0,2);L=U[b]?b:'fr'}
+function hexL(h){h=h.replace('#','');if(h.length<6)h=h.replace(/./g,'$&$&');const n=parseInt(h.slice(0,6),16),c=[n>>16&255,n>>8&255,n&255].map(v=>{v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)});return .2126*c[0]+.7152*c[1]+.0722*c[2]}
+function theme(){const r=document.documentElement,lt=r.dataset.theme==='light',ac=(lt&&D.accent_light)||D.accent||S.accent;
+ if(ac&&/^#[0-9a-f]{3,8}$/i.test(ac)){r.style.setProperty('--teal',ac);r.style.setProperty('--onteal',hexL(ac)>.35?'#06201e':'#ffffff')}else{r.style.removeProperty('--teal');r.style.removeProperty('--onteal')}
+ $('tb').textContent=lt?'\u263E':'\u2600'}
+$('tb').onclick=()=>{const r=document.documentElement,n=r.dataset.theme==='light'?'dark':'light';r.dataset.theme=n;try{localStorage.setItem('th',n)}catch(_){}theme()};
+function fit(){const sg=$('stage'),W=sg.clientWidth,H=sg.clientHeight,cv=sg.classList.contains('cover');
+ sg.querySelectorAll('img').forEach(m=>{if(cv||!m.naturalWidth){m.style.width=m.style.height='';return}const k=Math.min(W/m.naturalWidth,H/m.naturalHeight);m.style.width=Math.round(m.naturalWidth*k)+'px';m.style.height=Math.round(m.naturalHeight*k)+'px'})}
+addEventListener('resize',fit);
+function watch(){if(io)io.disconnect();const ss=[...document.querySelectorAll('.step')],im=[...$('stage').children];
+ const go=i=>{ss.forEach((e,k)=>e.classList.toggle('on',k===i));im.forEach((e,k)=>e.classList.toggle('on',k===i))};go(0);
+ io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)go(ss.indexOf(e.target))}),{rootMargin:'-45% 0px -45% 0px'});ss.forEach(e=>io.observe(e))}
+function render(){document.documentElement.lang=L;document.documentElement.dir=L==='ar'?'rtl':'ltr';document.title=U[L].ttl+' | MicroGap Lab';
+ document.querySelectorAll('[data-u]').forEach(e=>e.textContent=U[L][e.dataset.u]);$('tb').title=U[L].tt;
+ document.querySelectorAll('.pill[data-l]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===L));
+ const st=$('steps'),sg=$('stage');st.replaceChildren();sg.replaceChildren();
+ steps.forEach((s,i)=>{const d=el('div','step'),c=el('div');
+  c.append(el('span','n',String(i+1).padStart(2,'0')),el('h2',null,s['title_'+L]||s.title_en||''),el('p',null,s['text_'+L]||s.text_en||''));d.append(c);st.append(d);
+  const m=el('img');m.src=s.image||'';m.alt='';m.loading=i?'lazy':'eager';m.onload=fit;m.onerror=()=>m.remove();sg.append(m)});
+ watch()}
+function design(){const r=document.documentElement;let st=null;try{st=localStorage.getItem('th')}catch(_){}
+ if(!st&&(D.theme_default==='light'||D.theme_default==='dark'))r.dataset.theme=D.theme_default;
+ theme();
+ r.style.setProperty('--fade',(D.about_fade_ms||900)+'ms');r.style.setProperty('--edge',(D.about_edge_fade==null?40:D.about_edge_fade)+'%');
+ $('stage').classList.toggle('cover',D.about_fit==='cover');fit();
+ off($('pg'),!on('about_progress'));off($('tb'),!on('show_theme_btn'));
+ document.querySelectorAll('.pill[data-l]').forEach(b=>off(b,D['lang_'+b.dataset.l]===false));
+ if(D.custom_css){const x=el('style');x.textContent=D.custom_css;document.head.append(x)}
+ const a=on('about_enabled',false);off($('app'),!a);off($('soon'),a)}
+addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;$('pg').style.width=(h>0?scrollY/h*100:0)+'%'},{passive:true});
+document.querySelectorAll('.pill[data-l]').forEach(b=>b.onclick=()=>{L=b.dataset.l;try{localStorage.setItem('lg',L)}catch(_){}render()});
+const J=u=>fetch(u).then(r=>r.json()).catch(()=>({}));
+Promise.all([J('content/settings.json'),J('content/design.json'),J('content/about.json')]).then(([s,d,a])=>{S=s;D=d;steps=a.steps||[];
+ const l=$('logo');l.onload=()=>l.hidden=false;l.src=s.logo||'images/logo.png';
+ if(!had&&D.default_lang&&D.default_lang!=='auto'&&U[D.default_lang])L=D.default_lang;
+ design();render()});
+render();
+</script></body></html>
