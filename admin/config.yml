@@ -11,7 +11,7 @@ collections:
     label: Site
     files:
       - name: gallery
-        label: Gallery
+        label: Gallery (add new work here)
         file: content/gallery.json
         format: json
         fields:
@@ -21,13 +21,13 @@ collections:
             add_to_top: true
             summary: "{{fields.title}}"
             fields:
-              - label: Title
+              - label: "Title"
                 name: title
                 widget: string
-              - label: Date
+              - label: "Date (format 2026-10-04)"
                 name: date
                 widget: string
-                hint: "Format: 2026-10-04"
+                required: false
               - label: Category
                 name: category
                 widget: select
@@ -35,26 +35,30 @@ collections:
                   - Auto and Mechanical
                   - Decor
                   - Custom project
+                  - CAD design
                   - Toys and Gaming
                   - Art and Sculptures
-                  - CAD design
-              - label: Material
+              - label: "Material"
                 name: material
                 widget: string
                 required: false
-              - label: Layer height, for example 0.16 mm
+              - label: "Layer height, for example 0.16 mm"
                 name: layer
                 widget: string
                 required: false
-              - label: Print time, for example 4 h
+              - label: "Print time, for example 4 h"
                 name: time
                 widget: string
                 required: false
-              - label: Description
+              - label: "Video (optional, MP4 under 20 MB)"
+                name: video
+                widget: file
+                required: false
+              - label: "Description"
                 name: description
                 widget: text
                 required: false
-              - label: Photos
+              - label: Photos (first one is the cover)
                 name: images
                 widget: list
                 required: false
@@ -62,37 +66,245 @@ collections:
                   label: Photo
                   name: photo
                   widget: image
+      - name: design
+        label: Design and switches (theme, sections, banner, About page on/off)
+        file: content/design.json
+        format: json
+        fields:
+          - label: "ABOUT PAGE: Turn the presentation page ON (leave off until you finish editing it)"
+            name: about_enabled
+            widget: boolean
+            required: false
+            default: false
+          - label: "ABOUT PAGE: Fade time between pictures (milliseconds)"
+            name: about_fade_ms
+            widget: number
+            required: false
+            value_type: int
+            min: 200
+            max: 3000
+            default: 900
+          - label: "ABOUT PAGE: How far the picture fades into the page (percent, 0 = no fade)"
+            name: about_edge_fade
+            widget: number
+            required: false
+            value_type: int
+            min: 0
+            max: 70
+            default: 40
+          - label: "ABOUT PAGE: Picture fit"
+            name: about_fit
+            widget: select
+            required: false
+            options: [{label: "Whole picture (contain)", value: contain}, {label: "Fill the area (cover, crops)", value: cover}]
+            default: contain
+          - label: "ABOUT PAGE: Show the progress bar"
+            name: about_progress
+            widget: boolean
+            required: false
+            default: true
+          - label: "LOOK: Default theme for new visitors"
+            name: theme_default
+            widget: select
+            required: false
+            options: [{label: "Automatic (follow the device)", value: auto}, {label: "Light", value: light}, {label: "Dark", value: dark}]
+            default: auto
+          - label: "LOOK: Show the light/dark button"
+            name: show_theme_btn
+            widget: boolean
+            required: false
+            default: true
+          - label: "LOOK: Accent color (dark theme)"
+            name: accent
+            widget: color
+            required: false
+          - label: "LOOK: Accent color (light theme, a darker shade reads better)"
+            name: accent_light
+            widget: color
+            required: false
+          - label: "LOOK: Roundness of cards and boxes (pixels)"
+            name: radius
+            widget: number
+            required: false
+            value_type: int
+            min: 0
+            max: 28
+            default: 12
+          - label: "LOOK: Font"
+            name: font
+            widget: select
+            required: false
+            options: [{label: "System (default)", value: system}, {label: "Serif (Georgia)", value: serif}, {label: "Humanist (Trebuchet)", value: humanist}, {label: "Monospace", value: mono}]
+            default: system
+          - label: "LOOK: Extra CSS (advanced, leave empty if unsure)"
+            name: custom_css
+            widget: text
+            required: false
+          - label: "HERO: Background photo"
+            name: hero_image
+            widget: image
+            required: false
+          - label: "HERO: Darkening over the photo (percent)"
+            name: hero_overlay
+            widget: number
+            required: false
+            value_type: int
+            min: 0
+            max: 90
+            default: 60
+          - label: "HERO: Show the blueprint grid"
+            name: show_grid
+            widget: boolean
+            required: false
+            default: true
+          - label: "HERO: Show the three trust points"
+            name: show_trust
+            widget: boolean
+            required: false
+            default: true
+          - label: "BANNER: Show the announcement bar"
+            name: banner_on
+            widget: boolean
+            required: false
+            default: false
+          - label: "BANNER: Text in English"
+            name: banner_en
+            widget: string
+            required: false
+          - label: "BANNER: Text in French"
+            name: banner_fr
+            widget: string
+            required: false
+          - label: "BANNER: Text in Arabic"
+            name: banner_ar
+            widget: string
+            required: false
+          - label: "BANNER: Link when tapped (optional)"
+            name: banner_link
+            widget: string
+            required: false
+          - label: "LANGUAGE: Default language for new visitors"
+            name: default_lang
+            widget: select
+            required: false
+            options: [{label: "Automatic (device language)", value: auto}, {label: "French", value: fr}, {label: "Arabic", value: ar}, {label: "English", value: en}]
+            default: auto
+          - label: "LANGUAGE: Offer Arabic"
+            name: lang_ar
+            widget: boolean
+            required: false
+            default: true
+          - label: "LANGUAGE: Offer French"
+            name: lang_fr
+            widget: boolean
+            required: false
+            default: true
+          - label: "LANGUAGE: Offer English"
+            name: lang_en
+            widget: boolean
+            required: false
+            default: true
+          - label: "SECTIONS: Show services"
+            name: show_services
+            widget: boolean
+            required: false
+            default: true
+          - label: "SECTIONS: Show recent work"
+            name: show_work
+            widget: boolean
+            required: false
+            default: true
+          - label: "SECTIONS: Show About on the home page"
+            name: show_about_home
+            widget: boolean
+            required: false
+            default: true
+          - label: "SECTIONS: Show the request form"
+            name: show_request
+            widget: boolean
+            required: false
+            default: true
+          - label: "SECTIONS: Show the Follow us cards"
+            name: show_follow
+            widget: boolean
+            required: false
+            default: true
+          - label: "SECTIONS: Order of sections (drag to reorder, empty = default)"
+            name: section_order
+            widget: list
+            required: false
+            field:
+              label: Section
+              name: section
+              widget: select
+              options: [{label: "Services", value: custom}, {label: "Recent work", value: work}, {label: "Watch video", value: vid}, {label: "Reviews", value: reviews}, {label: "About", value: about}, {label: "Request form", value: request}, {label: "Follow us", value: follow}]
+          - label: "SEO: Browser tab title (empty = default)"
+            name: site_title
+            widget: string
+            required: false
+          - label: "SEO: Short description for search engines"
+            name: site_desc
+            widget: text
+            required: false
       - name: settings
-        label: Logo and contact links
+        label: Logo, contact links and video
         file: content/settings.json
         format: json
         fields:
-          - label: Logo (square image works best)
+          - label: "Logo (square image works best)"
             name: logo
             widget: image
             required: false
-          - label: WhatsApp number, digits only like 213555123456
+          - label: "WhatsApp number, digits only like 213555123456"
             name: whatsapp
             widget: string
             required: false
-          - label: Facebook URL
+          - label: "Phone number (shown in the footer)"
+            name: phone
+            widget: string
+            required: false
+          - label: "Facebook URL"
             name: facebook
             widget: string
             required: false
-          - label: Instagram URL
+          - label: "Instagram URL"
             name: instagram
             widget: string
             required: false
-          - label: TikTok URL
+          - label: "TikTok URL"
             name: tiktok
             widget: string
             required: false
-          - label: Public email
+          - label: "Public email"
             name: email
             widget: string
             required: false
-          - label: Web3Forms access key (so you never edit index.html)
+          - label: "Web3Forms access key (already built into the page, fill only to change it)"
             name: form_key
+            widget: string
+            required: false
+          - label: "About us text in English (home page)"
+            name: about_en
+            widget: text
+            required: false
+          - label: "About us text in French"
+            name: about_fr
+            widget: text
+            required: false
+          - label: "About us text in Arabic"
+            name: about_ar
+            widget: text
+            required: false
+          - label: "About us photo"
+            name: about_photo
+            widget: image
+            required: false
+          - label: "Video file for the Watch section (MP4 under 20 MB)"
+            name: video_file
+            widget: file
+            required: false
+          - label: "Or a YouTube link for the Watch section"
+            name: video_url
             widget: string
             required: false
       - name: reviews
@@ -106,24 +318,309 @@ collections:
             add_to_top: true
             summary: "{{fields.name}}"
             fields:
-              - label: Client name (first name or initials)
+              - label: "Client name (first name or initials)"
                 name: name
                 widget: string
-              - label: Wilaya
+              - label: "Wilaya"
                 name: city
                 widget: string
                 required: false
-              - label: Rating (1 to 5)
+              - label: "Rating (1 to 5)"
                 name: rating
                 widget: number
+                required: false
                 value_type: int
                 min: 1
                 max: 5
                 default: 5
-              - label: Comment
+              - label: "Comment"
                 name: text
                 widget: text
-              - label: Photo (print installed, or screenshot of their message)
+              - label: "Photo (print installed, or screenshot of their message)"
                 name: photo
                 widget: image
+                required: false
+      - name: about
+        label: About presentation steps (shown one by one while scrolling)
+        file: content/about.json
+        format: json
+        fields:
+          - label: Steps
+            name: steps
+            widget: list
+            summary: "{{fields.title_en}}"
+            fields:
+              - label: "Title (English)"
+                name: title_en
+                widget: string
+              - label: "Text (English)"
+                name: text_en
+                widget: text
+              - label: "Title (French)"
+                name: title_fr
+                widget: string
+                required: false
+              - label: "Text (French)"
+                name: text_fr
+                widget: text
+                required: false
+              - label: "Title (Arabic)"
+                name: title_ar
+                widget: string
+                required: false
+              - label: "Text (Arabic)"
+                name: text_ar
+                widget: text
+                required: false
+              - label: "Picture"
+                name: image
+                widget: image
+                required: false
+      - name: texts
+        label: Page texts (leave empty to keep the default)
+        file: content/texts.json
+        format: json
+        fields:
+          - label: English
+            name: en
+            widget: object
+            collapsed: true
+            fields:
+              - label: "Hero headline"
+                name: h1
+                widget: string
+                required: false
+              - label: "Hero text under the headline"
+                name: sub
+                widget: text
+                required: false
+              - label: "Hero main button"
+                name: cta
+                widget: string
+                required: false
+              - label: "Trust point 1"
+                name: tr1
+                widget: string
+                required: false
+              - label: "Trust point 2"
+                name: tr2
+                widget: string
+                required: false
+              - label: "Trust point 3"
+                name: tr3
+                widget: string
+                required: false
+              - label: "Service card 1 title"
+                name: s1t
+                widget: string
+                required: false
+              - label: "Service card 1 text"
+                name: s1d
+                widget: text
+                required: false
+              - label: "Service card 2 title"
+                name: s2t
+                widget: string
+                required: false
+              - label: "Service card 2 text"
+                name: s2d
+                widget: text
+                required: false
+              - label: "Service card 3 title"
+                name: s3t
+                widget: string
+                required: false
+              - label: "Service card 3 text"
+                name: s3d
+                widget: text
+                required: false
+              - label: "Services heading"
+                name: ct
+                widget: string
+                required: false
+              - label: "Services text"
+                name: cd
+                widget: text
+                required: false
+              - label: "Work heading"
+                name: wt
+                widget: string
+                required: false
+              - label: "Work text"
+                name: wd
+                widget: text
+                required: false
+              - label: "Request heading"
+                name: rt
+                widget: string
+                required: false
+              - label: "Request text"
+                name: rd
+                widget: text
+                required: false
+              - label: "About text on the home page"
+                name: abd
+                widget: text
+                required: false
+          - label: French
+            name: fr
+            widget: object
+            collapsed: true
+            fields:
+              - label: "Hero headline"
+                name: h1
+                widget: string
+                required: false
+              - label: "Hero text under the headline"
+                name: sub
+                widget: text
+                required: false
+              - label: "Hero main button"
+                name: cta
+                widget: string
+                required: false
+              - label: "Trust point 1"
+                name: tr1
+                widget: string
+                required: false
+              - label: "Trust point 2"
+                name: tr2
+                widget: string
+                required: false
+              - label: "Trust point 3"
+                name: tr3
+                widget: string
+                required: false
+              - label: "Service card 1 title"
+                name: s1t
+                widget: string
+                required: false
+              - label: "Service card 1 text"
+                name: s1d
+                widget: text
+                required: false
+              - label: "Service card 2 title"
+                name: s2t
+                widget: string
+                required: false
+              - label: "Service card 2 text"
+                name: s2d
+                widget: text
+                required: false
+              - label: "Service card 3 title"
+                name: s3t
+                widget: string
+                required: false
+              - label: "Service card 3 text"
+                name: s3d
+                widget: text
+                required: false
+              - label: "Services heading"
+                name: ct
+                widget: string
+                required: false
+              - label: "Services text"
+                name: cd
+                widget: text
+                required: false
+              - label: "Work heading"
+                name: wt
+                widget: string
+                required: false
+              - label: "Work text"
+                name: wd
+                widget: text
+                required: false
+              - label: "Request heading"
+                name: rt
+                widget: string
+                required: false
+              - label: "Request text"
+                name: rd
+                widget: text
+                required: false
+              - label: "About text on the home page"
+                name: abd
+                widget: text
+                required: false
+          - label: Arabic
+            name: ar
+            widget: object
+            collapsed: true
+            fields:
+              - label: "Hero headline"
+                name: h1
+                widget: string
+                required: false
+              - label: "Hero text under the headline"
+                name: sub
+                widget: text
+                required: false
+              - label: "Hero main button"
+                name: cta
+                widget: string
+                required: false
+              - label: "Trust point 1"
+                name: tr1
+                widget: string
+                required: false
+              - label: "Trust point 2"
+                name: tr2
+                widget: string
+                required: false
+              - label: "Trust point 3"
+                name: tr3
+                widget: string
+                required: false
+              - label: "Service card 1 title"
+                name: s1t
+                widget: string
+                required: false
+              - label: "Service card 1 text"
+                name: s1d
+                widget: text
+                required: false
+              - label: "Service card 2 title"
+                name: s2t
+                widget: string
+                required: false
+              - label: "Service card 2 text"
+                name: s2d
+                widget: text
+                required: false
+              - label: "Service card 3 title"
+                name: s3t
+                widget: string
+                required: false
+              - label: "Service card 3 text"
+                name: s3d
+                widget: text
+                required: false
+              - label: "Services heading"
+                name: ct
+                widget: string
+                required: false
+              - label: "Services text"
+                name: cd
+                widget: text
+                required: false
+              - label: "Work heading"
+                name: wt
+                widget: string
+                required: false
+              - label: "Work text"
+                name: wd
+                widget: text
+                required: false
+              - label: "Request heading"
+                name: rt
+                widget: string
+                required: false
+              - label: "Request text"
+                name: rd
+                widget: text
+                required: false
+              - label: "About text on the home page"
+                name: abd
+                widget: text
                 required: false
