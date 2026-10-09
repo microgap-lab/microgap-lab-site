@@ -1,5 +1,5 @@
 {
-  "about_enabled": false,
+  "about_enabled": true,
   "about_fade_ms": 900,
   "about_edge_fade": 40,
   "about_fit": "contain",
