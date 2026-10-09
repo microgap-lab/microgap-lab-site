@@ -1,58 +1,58 @@
 {
- "steps": [
-  {
-   "title_en": "A small part breaks",
-   "text_en": "A small plastic part fails and the whole machine or car stops working.",
-   "title_fr": "Une petite pièce casse",
-   "text_fr": "Une petite pièce plastique lâche et toute la machine ou la voiture s'arrête.",
-   "title_ar": "قطعة صغيرة تنكسر",
-   "text_ar": "قطعة بلاستيكية صغيرة تتعطل فتتوقف الآلة أو السيارة كلها.",
-   "image": "/images/about/s1.jpg"
-  },
-  {
-   "title_en": "And it is not for sale",
-   "text_en": "Often the maker does not sell the part alone, or it takes weeks to arrive.",
-   "title_fr": "Et elle ne se vend pas",
-   "text_fr": "Souvent le fabricant ne vend pas la pièce seule, ou elle met des semaines à arriver.",
-   "title_ar": "ولا تُباع وحدها",
-   "text_ar": "غالباً لا تبيع الشركة القطعة منفردة، أو تتأخر أسابيع في الوصول.",
-   "image": "/images/about/s2.jpg"
-  },
-  {
-   "title_en": "We model it in CAD",
-   "text_en": "Send us the broken part, a photo or your measurements. We rebuild it as a precise 3D model.",
-   "title_fr": "Nous la modélisons en CAD",
-   "text_fr": "Envoyez-nous la pièce cassée, une photo ou vos mesures. Nous la reconstruisons en modèle 3D précis.",
-   "title_ar": "نصممها بالـ CAD",
-   "text_ar": "أرسل لنا القطعة المكسورة أو صورة أو قياساتها، ونعيد بناءها كنموذج ثلاثي الأبعاد دقيق.",
-   "image": "/images/about/s3.jpg"
-  },
-  {
-   "title_en": "We print it in the right material",
-   "text_en": "PLA for decor, PETG for everyday parts, ABS or ASA for heat and sun. Strength depends on how the part will be used.",
-   "title_fr": "Nous l'imprimons dans la bonne matière",
-   "text_fr": "PLA pour le décor, PETG pour l'usage courant, ABS ou ASA pour la chaleur et le soleil. La solidité dépend de l'usage.",
-   "title_ar": "نطبعها بالمادة المناسبة",
-   "text_ar": "PLA للديكور، PETG للاستعمال العادي، ABS أو ASA للحرارة والشمس. والمتانة تُحدد حسب استعمال القطعة.",
-   "image": "/images/about/s4.jpg"
-  },
-  {
-   "title_en": "We measure and fit it",
-   "text_en": "Checked with a caliper and fitted by hand, so it goes back where the original was.",
-   "title_fr": "Nous mesurons et ajustons",
-   "text_fr": "Contrôlée au pied à coulisse et ajustée à la main, pour qu'elle reprenne la place de l'originale.",
-   "title_ar": "نقيس ونجرّب التركيب",
-   "text_ar": "تُفحص بالقدمة وتُجرَّب باليد لتعود مكان القطعة الأصلية.",
-   "image": "/images/about/s5.jpg"
-  },
-  {
-   "title_en": "Decor and unique pieces too",
-   "text_en": "Have an idea instead of a broken part? We turn it into a one-of-a-kind print. Delivery to all 69 wilayas.",
-   "title_fr": "Du décor et des pièces uniques aussi",
-   "text_fr": "Une idée plutôt qu'une pièce cassée ? Nous la transformons en impression unique. Livraison dans les 69 wilayas.",
-   "title_ar": "وديكور وقطع فريدة أيضاً",
-   "text_ar": "عندك فكرة بدل قطعة مكسورة؟ نحولها إلى طباعة فريدة. توصيل إلى 69 ولاية.",
-   "image": "/images/about/s6.jpg"
-  }
- ]
+  "steps": [
+    {
+      "title_en": "A small part breaks",
+      "text_en": "A small plastic part fails and the whole machine or car stops working.",
+      "title_fr": "Une petite pièce casse",
+      "text_fr": "Une petite pièce plastique lâche et toute la machine ou la voiture s'arrête.",
+      "title_ar": "قطعة صغيرة تنكسر",
+      "text_ar": "قطعة بلاستيكية صغيرة تتعطل فتتوقف الآلة أو السيارة كلها.",
+      "image": "/images/uploads/Microgap_Lab.png"
+    },
+    {
+      "title_en": "And it is not for sale",
+      "text_en": "Often the maker does not sell the part alone, or it takes weeks to arrive.",
+      "title_fr": "Et elle ne se vend pas",
+      "text_fr": "Souvent le fabricant ne vend pas la pièce seule, ou elle met des semaines à arriver.",
+      "title_ar": "ولا تُباع وحدها",
+      "text_ar": "غالباً لا تبيع الشركة القطعة منفردة، أو تتأخر أسابيع في الوصول.",
+      "image": "/images/uploads/IMG_20260930_203844.jpg"
+    },
+    {
+      "title_en": "We model it in CAD",
+      "text_en": "Send us the broken part, a photo or your measurements. We rebuild it as a precise 3D model.",
+      "title_fr": "Nous la modélisons en CAD",
+      "text_fr": "Envoyez-nous la pièce cassée, une photo ou vos mesures. Nous la reconstruisons en modèle 3D précis.",
+      "title_ar": "نصممها بالـ CAD",
+      "text_ar": "أرسل لنا القطعة المكسورة أو صورة أو قياساتها، ونعيد بناءها كنموذج ثلاثي الأبعاد دقيق.",
+      "image": "/images/about/s3.jpg"
+    },
+    {
+      "title_en": "We print it in the right material",
+      "text_en": "PLA for decor, PETG for everyday parts, ABS or ASA for heat and sun. Strength depends on how the part will be used.",
+      "title_fr": "Nous l'imprimons dans la bonne matière",
+      "text_fr": "PLA pour le décor, PETG pour l'usage courant, ABS ou ASA pour la chaleur et le soleil. La solidité dépend de l'usage.",
+      "title_ar": "نطبعها بالمادة المناسبة",
+      "text_ar": "PLA للديكور، PETG للاستعمال العادي، ABS أو ASA للحرارة والشمس. والمتانة تُحدد حسب استعمال القطعة.",
+      "image": "/images/about/s4.jpg"
+    },
+    {
+      "title_en": "We measure and fit it",
+      "text_en": "Checked with a caliper and fitted by hand, so it goes back where the original was.",
+      "title_fr": "Nous mesurons et ajustons",
+      "text_fr": "Contrôlée au pied à coulisse et ajustée à la main, pour qu'elle reprenne la place de l'originale.",
+      "title_ar": "نقيس ونجرّب التركيب",
+      "text_ar": "تُفحص بالقدمة وتُجرَّب باليد لتعود مكان القطعة الأصلية.",
+      "image": "/images/about/s5.jpg"
+    },
+    {
+      "title_en": "Decor and unique pieces too",
+      "text_en": "Have an idea instead of a broken part? We turn it into a one-of-a-kind print. Delivery to all 69 wilayas.",
+      "title_fr": "Du décor et des pièces uniques aussi",
+      "text_fr": "Une idée plutôt qu'une pièce cassée ? Nous la transformons en impression unique. Livraison dans les 69 wilayas.",
+      "title_ar": "وديكور وقطع فريدة أيضاً",
+      "text_ar": "عندك فكرة بدل قطعة مكسورة؟ نحولها إلى طباعة فريدة. توصيل إلى 69 ولاية.",
+      "image": "/images/about/s6.jpg"
+    }
+  ]
 }
