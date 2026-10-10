@@ -21,9 +21,21 @@ collections:
             add_to_top: true
             summary: "{{fields.title}}"
             fields:
-              - label: "Title"
+              - label: "Title (main, in any language; shown when a translation is empty)"
                 name: title
                 widget: string
+              - label: "Title in English (optional)"
+                name: title_en
+                widget: string
+                required: false
+              - label: "Title in French (optional)"
+                name: title_fr
+                widget: string
+                required: false
+              - label: "Title in Arabic (optional)"
+                name: title_ar
+                widget: string
+                required: false
               - label: "Date (format 2026-10-04)"
                 name: date
                 widget: string
@@ -50,12 +62,28 @@ collections:
                 name: time
                 widget: string
                 required: false
+              - label: "Price shown to visitors, for example from 800 DA (needs the Show prices switch)"
+                name: price
+                widget: string
+                required: false
               - label: "Video (optional, MP4 under 20 MB)"
                 name: video
                 widget: file
                 required: false
-              - label: "Description"
+              - label: "Description (main)"
                 name: description
+                widget: text
+                required: false
+              - label: "Description in English (optional)"
+                name: description_en
+                widget: text
+                required: false
+              - label: "Description in French (optional)"
+                name: description_fr
+                widget: text
+                required: false
+              - label: "Description in Arabic (optional)"
+                name: description_ar
                 widget: text
                 required: false
               - label: Photos (first one is the cover)
@@ -237,7 +265,71 @@ collections:
               label: Section
               name: section
               widget: select
-              options: [{label: "Services", value: custom}, {label: "Recent work", value: work}, {label: "Watch video", value: vid}, {label: "Reviews", value: reviews}, {label: "About", value: about}, {label: "Request form", value: request}, {label: "Follow us", value: follow}]
+              options: [{label: "Services", value: custom}, {label: "Recent work", value: work}, {label: "Watch video", value: vid}, {label: "Reviews", value: reviews}, {label: "About", value: about}, {label: "FAQ", value: faq}, {label: "Custom section", value: extra}, {label: "Request form", value: request}, {label: "Follow us", value: follow}]
+          - label: "GALLERY: Show the category filter buttons"
+            name: show_filters
+            widget: boolean
+            required: false
+            default: true
+          - label: "GALLERY: Show material, layer height and print time on cards"
+            name: show_meta
+            widget: boolean
+            required: false
+            default: true
+          - label: "GALLERY: Show prices on cards (fill the Price field on each project)"
+            name: show_prices
+            widget: boolean
+            required: false
+            default: false
+          - label: "GALLERY: Card width in pixels (smaller = more columns)"
+            name: grid_min
+            widget: number
+            required: false
+            value_type: int
+            min: 160
+            max: 420
+            default: 240
+          - label: "TOOLS: Show the FAQ section (add questions in the FAQ file)"
+            name: show_faq
+            widget: boolean
+            required: false
+            default: false
+          - label: "TOOLS: Show the Custom section (edit it in the Custom section file)"
+            name: show_extra
+            widget: boolean
+            required: false
+            default: false
+          - label: "TOOLS: Show address, hours and map link in the footer (Custom section file)"
+            name: show_info
+            widget: boolean
+            required: false
+            default: false
+          - label: "TOOLS: Show the back-to-top button"
+            name: show_top
+            widget: boolean
+            required: false
+            default: false
+          - label: "TOOLS: Maintenance mode - hides the whole site behind a message"
+            name: maintenance_on
+            widget: boolean
+            required: false
+            default: false
+          - label: "TOOLS: Maintenance message in English"
+            name: maintenance_en
+            widget: string
+            required: false
+          - label: "TOOLS: Maintenance message in French"
+            name: maintenance_fr
+            widget: string
+            required: false
+          - label: "TOOLS: Maintenance message in Arabic"
+            name: maintenance_ar
+            widget: string
+            required: false
+          - label: "TOOLS: Cloudflare Web Analytics token (optional, visitor counts)"
+            name: analytics_token
+            widget: string
+            required: false
           - label: "SEO: Browser tab title (empty = default)"
             name: site_title
             widget: string
@@ -624,3 +716,105 @@ collections:
                 name: abd
                 widget: text
                 required: false
+      - name: faq
+        label: FAQ (questions and answers, turn on in Design and switches)
+        file: content/faq.json
+        format: json
+        fields:
+          - label: Questions
+            name: items
+            widget: list
+            add_to_top: false
+            summary: "{{fields.q_en}}"
+            fields:
+              - label: "Question in English"
+                name: q_en
+                widget: string
+              - label: "Answer in English"
+                name: a_en
+                widget: text
+              - label: "Question in French"
+                name: q_fr
+                widget: string
+                required: false
+              - label: "Answer in French"
+                name: a_fr
+                widget: text
+                required: false
+              - label: "Question in Arabic"
+                name: q_ar
+                widget: string
+                required: false
+              - label: "Answer in Arabic"
+                name: a_ar
+                widget: text
+                required: false
+      - name: extras
+        label: Custom section and business info (turn on in Design and switches)
+        file: content/extras.json
+        format: json
+        fields:
+          - label: "Custom section title in English"
+            name: title_en
+            widget: string
+            required: false
+          - label: "Custom section text in English"
+            name: text_en
+            widget: text
+            required: false
+          - label: "Button text in English"
+            name: button_en
+            widget: string
+            required: false
+          - label: "Custom section title in French"
+            name: title_fr
+            widget: string
+            required: false
+          - label: "Custom section text in French"
+            name: text_fr
+            widget: text
+            required: false
+          - label: "Button text in French"
+            name: button_fr
+            widget: string
+            required: false
+          - label: "Custom section title in Arabic"
+            name: title_ar
+            widget: string
+            required: false
+          - label: "Custom section text in Arabic"
+            name: text_ar
+            widget: text
+            required: false
+          - label: "Button text in Arabic"
+            name: button_ar
+            widget: string
+            required: false
+          - label: "Button link (https://...)"
+            name: button_link
+            widget: string
+            required: false
+          - label: "Custom section picture"
+            name: image
+            widget: image
+            required: false
+          - label: "Address (footer)"
+            name: address
+            widget: string
+            required: false
+          - label: "Opening hours in English"
+            name: hours_en
+            widget: string
+            required: false
+          - label: "Opening hours in French"
+            name: hours_fr
+            widget: string
+            required: false
+          - label: "Opening hours in Arabic"
+            name: hours_ar
+            widget: string
+            required: false
+          - label: "Map link (Google Maps share link)"
+            name: map_url
+            widget: string
+            required: false
